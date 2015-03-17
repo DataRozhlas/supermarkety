@@ -1,8 +1,0 @@
-"FIRMA40A" = "AHOLD Czech Republic, a. s."  OR 
-"FIRMA40A" = "Billa, s.r.o."  OR 
-"FIRMA40A" = "Kaufland Česká republika, v.o.s."  OR 
-"FIRMA40A" = "Lidl Česká republika, v.o.s."  OR 
-"FIRMA40A" = "Penny Market, s.r.o."  OR 
-"FIRMA40A" = "Tesco Franchise Stores ČR, a.s."  OR 
-"FIRMA40A" = "Tesco Stores ČR, a.s."  OR 
-"FIRMA40A" = "Spar Česká obchodní společnost, s.r.o."

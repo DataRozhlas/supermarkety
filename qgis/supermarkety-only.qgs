@@ -29,10 +29,10 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>14.270611564434736</xmin>
-      <ymin>49.9790012594831552</ymin>
-      <xmax>14.71218014339048885</xmax>
-      <ymax>50.14041285388664448</ymax>
+      <xmin>15.81095469014093524</xmin>
+      <ymin>49.11498457043836652</ymin>
+      <xmax>16.69409184805247648</xmax>
+      <ymax>49.61476637041403137</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
@@ -132,7 +132,7 @@
         </spatialrefsys>
       </srs>
       <provider encoding="UTF-8">ogr</provider>
-      <previewExpression></previewExpression>
+      <previewExpression>COALESCE( "NAZOB", '&lt;NULL>' )</previewExpression>
       <vectorjoins/>
       <expressionfields/>
       <map-layer-style-manager current="">

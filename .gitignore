@@ -1,2 +1,5 @@
 .ipynb_checkpoints
 *.lock
+
+data/voronoi.geojson
+data/okresni-mesta.geojson

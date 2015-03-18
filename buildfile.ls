@@ -129,6 +129,12 @@ combine-scripts = (options = {}, cb) ->
   {map, code} = result
   if not options.compression
     code += "\n//@ sourceMappingURL=./js/script.js.map"
+    patt = __dirname.replace /\\/g '\\\\\\\\'
+    map .= replace do
+      new RegExp do
+        patt
+        'g'
+      ''
     fs.writeFile "#__dirname/www/js/script.js.map", map
   else
     external = fs.readFileSync "#__dirname/www/external.js"

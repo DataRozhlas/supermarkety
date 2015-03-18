@@ -9,7 +9,8 @@ podily = d3.tsv.parse ig.data['mesta-podily'], (row) ->
     row[index] = parseFloat row[index]
   row
 
-map = new ig.Map container, podily, ig.data.voronoi
+voronois = topojson.feature ig.data.voronoi, ig.data.voronoi.objects.data
+map = new ig.Map container, podily, voronois
 new ig.Selector container, mesta
   ..on \selected (mesto)-> map.draw mesto
 

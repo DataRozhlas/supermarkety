@@ -6,8 +6,20 @@
   @import basics
 .ig
   svg
-    background yellow
     .mesh
       fill none
-      stroke black
+      stroke #f
+      stroke-opacity 0.5
       stroke-width 0.5
+    .firmy
+      path
+        stroke none
+        fill-opacity 0.8
+        transition fill-opacity 0.2s
+      &:hover
+        path
+          fill-opacity 0.3
+          &:hover
+            fill-opacity 0.9
+
+

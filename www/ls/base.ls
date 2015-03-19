@@ -14,4 +14,5 @@ map = new ig.Map container, podily, voronois
 new ig.Selector container, mesta
   ..on \selected (mesto)-> map.draw mesto
 
-map.draw mesta.0
+map.draw do
+  mesta.filter (.nazev == "Praha") .0

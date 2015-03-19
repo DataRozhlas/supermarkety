@@ -13,17 +13,35 @@ class ig.Map
     toDisplay = city.features
     if toDisplay is void
       toDisplay = @voronois.features.filter (feature) ->
-        [x, y] = projection feature.geometry.coordinates.0.0
+        firstCoordinate = feature.geometry.coordinates.0
+        while \Array is typeof! firstCoordinate.0
+          firstCoordinate = firstCoordinate.0
+        [x, y] = projection firstCoordinate
         -10 < x < width + 10 and -10 < y < height + 10
+
       for feature in toDisplay
         feature.inCity = nazev
         feature.d = path feature
       city.features = toDisplay
 
+    grouped = @getGroupedFeatures toDisplay
+    color = d3.scale.category10!
     svg = @element.append \svg
       ..attr \width width
       ..attr \height height
-      ..append \g
-        ..attr \class \mesh
-        ..selectAll \path .data toDisplay .enter!append \path
-          ..attr \d (.d)
+      ..append \g .attr \class \firmy
+        ..selectAll \g.firma .data grouped .enter!append \g
+          ..attr \class \firma
+          ..selectAll \path .data (.features) .enter!append \path
+            ..attr \d (.d)
+            ..attr \fill -> color it.properties.FIRMA
+
+  getGroupedFeatures: (features) ->
+    byFirma = {}
+    for feature in features
+      firma = feature.properties.FIRMA
+      byFirma[firma] ?= []
+      byFirma[firma].push feature
+
+    for firma, features of byFirma => {firma, features}
+

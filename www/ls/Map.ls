@@ -24,11 +24,27 @@ class ig.Map
         feature.d = path feature
       city.features = toDisplay
 
+    tile = d3.geo.tile!
+      ..size [width, height]
+      ..scale projection.scale! * 2 * Math.PI
+      ..translate projection [0 0]
+      ..zoomDelta ((window.devicePixelRatio || 1) - 0.5)
+    tiles = tile!
+
     grouped = @getGroupedFeatures toDisplay
     color = d3.scale.category10!
     svg = @element.append \svg
       ..attr \width width
       ..attr \height height
+      ..append \g
+        ..attr \class \tiles
+        ..attr \transform "scale(#{tiles.scale}) translate(#{tiles.translate})"
+        ..selectAll \image .data tiles .enter!append \image
+          ..attr \xlink:href -> "https://samizdat.cz/tiles/ton_b1/#{it.2}/#{it.0}/#{it.1}.png"
+          ..attr \width 1
+          ..attr \height 1
+          ..attr \x -> it.0
+          ..attr \y -> it.1
       ..append \g .attr \class \firmy
         ..selectAll \g.firma .data grouped .enter!append \g
           ..attr \class \firma

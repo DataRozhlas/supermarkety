@@ -1,7 +1,7 @@
 window.ig.utils.geo = geoUtils = {}
-geoUtils.getFittingProjection = (features, width) ->
+geoUtils.getFittingProjection = (features, {width, height}:maxDimensions) ->
   bounds = geoUtils.getBounds features
-  projection = geoUtils.getProjection bounds, width
+  projection = geoUtils.getProjection bounds, maxDimensions
   {width, height} = geoUtils.getDimensions bounds, projection
   {width, height, projection}
 
@@ -18,10 +18,17 @@ geoUtils.getBounds = (features) ->
     if e > east  => east  = e
   [[west, south], [east, north]]
 
-geoUtils.getProjection = ([[west, south], [east, north]]:bounds, width) ->
-  displayedPercent = (Math.abs west - east) / 360
+geoUtils.getProjection = ([[west, south], [east, north]]:bounds, {width, height}:maxDimensions) ->
+  scales = []
+  if width
+    displayedPercent = (Math.abs west - east) / 360
+    scales.push width / (Math.PI * 2 * displayedPercent)
+  if height
+    displayedPercent = (Math.abs north - south) / 180
+    scales.push width / (Math.PI * 2 * displayedPercent)
+
   projection = d3.geo.mercator!
-    ..scale width / (Math.PI * 2 * displayedPercent)
+    ..scale Math.min ...scales
     ..center [west, north]
     ..translate [0 0]
 

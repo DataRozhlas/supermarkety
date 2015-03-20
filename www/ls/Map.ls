@@ -7,11 +7,13 @@ class ig.Map
   draw: ({nazev, w, s, e, n}:city) ->
     @element.html ''
     padding = 20
-    projection = ig.utils.geo.getProjection [[w, s], [e, n]], @fullWidth - 2 * padding
+    projectedWidth = @fullWidth - 2 * padding
+    projection = ig.utils.geo.getProjection [[w, s], [e, n]], {width: projectedWidth, height: projectedWidth}
     {width, height} = ig.utils.geo.getDimensions [[w, s], [e, n]], projection
-    projection.translate [padding, padding]
-    fullWidth = width + 2 * padding
-    fullHeight = height + 3.5 * padding
+
+    projection.translate [(@fullWidth - width) / 2, (@fullWidth - height) / 2]
+    fullWidth = @fullWidth
+    fullHeight = @fullWidth
     path = d3.geo.path!
       ..projection projection
     toDisplay = city.features

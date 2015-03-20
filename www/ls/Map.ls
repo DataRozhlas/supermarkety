@@ -21,7 +21,7 @@ class ig.Map
         while \Array is typeof! firstCoordinate.0
           firstCoordinate = firstCoordinate.0
         [x, y] = projection firstCoordinate
-        -10 < x < width + 10 and -10 < y < height + 10
+        -10 < x < fullWidth + 10 and -10 < y < fullHeight + 10
 
       for feature in toDisplay
         feature.inCity = nazev

@@ -60,11 +60,12 @@ class ig.Map
           #{it.properties.ADRESA}"
 
     {podily} = @podily.filter (.nazev == city.nazev) .0
+    podily .= filter (.podil > 0)
     @element.append \div
       ..attr \class \barchart
       ..selectAll \div.bar .data podily .enter!append \div
         ..attr \class \bar
-        ..style \width -> "#{it.podil}%"
+        ..style \width -> "#{Math.floor it.podil}%"
         ..append \div
           ..attr \class \fill
           ..style \background-color -> color it.firma

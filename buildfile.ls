@@ -4,10 +4,13 @@ require! async
 externalScripts =
   \https://samizdat.cz/tools/tooltip/v1.1.4.d3.js
   \https://raw.githubusercontent.com/d3/d3-plugins/master/geo/tile/tile.js
+  \http://zeptojs.com/zepto.min.js
+  \https://raw.githubusercontent.com/arendjr/selectivity/master/dist/selectivity-full.min.js
   ...
 
 externalStyles =
   \https://samizdat.cz/tools/tooltip/v1.1.4.css
+  \https://raw.githubusercontent.com/arendjr/selectivity/master/dist/selectivity-full.min.css
   ...
 
 externalData =

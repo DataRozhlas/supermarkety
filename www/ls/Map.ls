@@ -5,6 +5,7 @@ class ig.Map
       ..attr \class \map
 
   draw: ({nazev, w, s, e, n}:city) ->
+    @element.html ''
     padding = 20
     projection = ig.utils.geo.getProjection [[w, s], [e, n]], @fullWidth - 2 * padding
     {width, height} = ig.utils.geo.getDimensions [[w, s], [e, n]], projection

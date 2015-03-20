@@ -5,9 +5,12 @@ class ig.Map
       ..attr \class \map
 
   draw: ({nazev, w, s, e, n}:city) ->
-    projection = ig.utils.geo.getProjection [[w, s], [e, n]], @fullWidth
+    padding = 20
+    projection = ig.utils.geo.getProjection [[w, s], [e, n]], @fullWidth - 2 * padding
     {width, height} = ig.utils.geo.getDimensions [[w, s], [e, n]], projection
-
+    projection.translate [padding, padding]
+    fullWidth = width + 2 * padding
+    fullHeight = height + 3.5 * padding
     path = d3.geo.path!
       ..projection projection
     toDisplay = city.features
@@ -25,7 +28,7 @@ class ig.Map
       city.features = toDisplay
 
     tile = d3.geo.tile!
-      ..size [width, height]
+      ..size [fullWidth, fullHeight]
       ..scale projection.scale! * 2 * Math.PI
       ..translate projection [0 0]
       ..zoomDelta ((window.devicePixelRatio || 1) - 0.5)
@@ -34,8 +37,8 @@ class ig.Map
     grouped = @getGroupedFeatures toDisplay
     color = d3.scale.category10!
     svg = @element.append \svg
-      ..attr \width width
-      ..attr \height height
+      ..attr \width fullWidth
+      ..attr \height fullHeight
       ..append \g
         ..attr \class \tiles
         ..attr \transform "scale(#{tiles.scale}) translate(#{tiles.translate})"
@@ -52,6 +55,19 @@ class ig.Map
             ..attr \d (.d)
             ..attr \fill -> color it.properties.FIRMA
 
+    {podily} = @podily.filter (.nazev == city.nazev) .0
+    @element.append \div
+      ..attr \class \barchart
+      ..selectAll \div.bar .data podily .enter!append \div
+        ..attr \class \bar
+        ..style \width -> "#{it.podil}%"
+        ..append \div
+          ..attr \class \fill
+          ..style \background-color -> color it.firma
+        ..append \span
+          ..attr \class \nazev
+          ..html -> toHumanFirma it.firma
+
   getGroupedFeatures: (features) ->
     byFirma = {}
     for feature in features
@@ -61,3 +77,10 @@ class ig.Map
 
     for firma, features of byFirma => {firma, features}
 
+
+toHumanFirma = ->
+  out = it.split /[ ,]/ .0
+  if out == "AHOLD"
+    "Albert"
+  else
+    out

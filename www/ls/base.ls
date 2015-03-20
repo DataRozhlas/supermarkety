@@ -4,10 +4,12 @@ mesta = d3.tsv.parse ig.data.['okresni-mesta'], (row) ->
     row[i] = parseFloat row[i]
   row
 podily = d3.tsv.parse ig.data['mesta-podily'], (row) ->
-  for index, value of row
-    continue if index == 'mesto'
-    row[index] = parseFloat row[index]
-  row
+  out = nazev: row.mesto
+  out.podily = for firma, value of row
+    continue if firma == 'mesto'
+    podil = parseFloat row[firma]
+    {firma, podil}
+  out
 
 voronois = topojson.feature ig.data.voronoi, ig.data.voronoi.objects.data
 map = new ig.Map container, podily, voronois

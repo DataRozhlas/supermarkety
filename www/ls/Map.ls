@@ -36,7 +36,7 @@ class ig.Map
 
     grouped = @getGroupedFeatures toDisplay
     color = d3.scale.category10!
-    svg = @element.append \svg
+    @svg = @element.append \svg
       ..attr \width fullWidth
       ..attr \height fullHeight
       ..append \g
@@ -48,12 +48,12 @@ class ig.Map
           ..attr \height 1
           ..attr \x -> it.0
           ..attr \y -> it.1
-      ..append \g .attr \class \firmy
-        ..selectAll \g.firma .data grouped .enter!append \g
-          ..attr \class \firma
-          ..selectAll \path .data (.features) .enter!append \path
-            ..attr \d (.d)
-            ..attr \fill -> color it.properties.FIRMA
+    @firmyG = @svg.append \g .attr \class \firmy
+    @firmaG = @firmyG.selectAll \g.firma .data grouped .enter!append \g
+      ..attr \class \firma
+      ..selectAll \path .data (.features) .enter!append \path
+        ..attr \d (.d)
+        ..attr \fill -> color it.properties.FIRMA
 
     {podily} = @podily.filter (.nazev == city.nazev) .0
     @element.append \div
@@ -67,6 +67,19 @@ class ig.Map
         ..append \span
           ..attr \class \nazev
           ..html -> toHumanFirma it.firma
+        ..on \mouseover @~highlightPodil
+        ..on \touchstart @~highlightPodil
+        ..on \mouseout @~downlightPodil
+
+  highlightPodil: ({firma}) ->
+    @firmyG.classed \highlight yes
+    @firmaG
+      .classed \highlight no
+      .filter (.firma == firma)
+      .classed \highlight yes
+
+  downlightPodil: ->
+    @firmyG.classed \highlight no
 
   getGroupedFeatures: (features) ->
     byFirma = {}

@@ -54,6 +54,9 @@ class ig.Map
       ..selectAll \path .data (.features) .enter!append \path
         ..attr \d (.d)
         ..attr \fill -> color it.properties.FIRMA
+        ..attr \data-tooltip ->
+          "<b>#{it.properties.FIRMA}</b><br>
+          #{it.properties.ADRESA}"
 
     {podily} = @podily.filter (.nazev == city.nazev) .0
     @element.append \div

@@ -2,12 +2,12 @@ require! fs
 require! async
 
 externalScripts =
-  # \https://samizdat.cz/tools/tooltip/v1.1.4.d3.js
+  \https://samizdat.cz/tools/tooltip/v1.1.4.d3.js
   \https://raw.githubusercontent.com/d3/d3-plugins/master/geo/tile/tile.js
   ...
 
 externalStyles =
-  # \https://samizdat.cz/tools/tooltip/v1.1.4.css
+  \https://samizdat.cz/tools/tooltip/v1.1.4.css
   ...
 
 externalData =

@@ -70,7 +70,7 @@ class ig.Map
           ..style \background-color -> color it.firma
         ..append \span
           ..attr \class \nazev
-          ..html -> toHumanFirma it.firma
+          ..html -> "#{toHumanFirma it.firma}<br><span class='podil'>#{ig.utils.formatNumber it.podil}&nbsp;%</span>"
         ..on \mouseover @~highlightPodil
         ..on \touchstart @~highlightPodil
         ..on \mouseout @~downlightPodil

@@ -55,18 +55,25 @@ class ig.Map
     @firmyG = @svg.append \g .attr \class \firmy
     @firmaG = @firmyG.selectAll \g.firma .data grouped .enter!append \g
       ..attr \class \firma
-      ..selectAll \g .data (.features) .enter!append \g
-        ..attr \class \market
-        ..append \path
-          ..attr \d (.d)
-          ..attr \fill -> color it.properties.FIRMA
-          ..attr \data-tooltip ->
-            "<b>#{it.properties.FIRMA}</b><br>
-            #{it.properties.ADRESA}"
-        ..append \circle
-          ..attr \cx (.center.0)
-          ..attr \cy (.center.1)
-          ..attr \r 2
+    @markety = @firmaG.selectAll \g .data (.features) .enter!append \g
+      ..attr \class \market
+      ..append \path
+        ..attr \d (.d)
+        ..attr \fill -> color it.properties.FIRMA
+      ..append \circle
+        ..attr \cx (.center.0)
+        ..attr \cy (.center.1)
+        ..attr \r 2
+    graphTipHolder = @element.append \div .attr \class \graphTip-holder
+    @graphTip = new ig.GraphTip graphTipHolder
+    @element.append \svg .attr \class \overlay
+      ..attr \width fullWidth
+      ..attr \height fullHeight
+      ..selectAll \path.overlay .data toDisplay .enter!append \path
+        ..attr \d (.d)
+        ..on \mouseover @~highlightMarket
+        ..on \touchstart @~highlightMarket
+        ..on \mouseout @~downlightMarket
 
     {podily} = @podily.filter (.nazev == city.nazev) .0
     podily .= filter (.podil > 0)
@@ -94,6 +101,19 @@ class ig.Map
 
   downlightPodil: ->
     @firmyG.classed \highlight no
+
+  highlightMarket: (feature) ->
+    @graphTip.display do
+      feature.center.0
+      feature.center.1
+      "<b>#{feature.properties.FIRMA}</b><br>#{feature.properties.ADRESA}"
+    @firmyG.classed \highlight-market yes
+    @markety.classed \highlight-market -> it is feature
+
+  downlightMarket: ->
+    @firmyG.classed \highlight-market no
+    @markety.classed \highlight-market no
+    @graphTip.hide!
 
   getGroupedFeatures: (features) ->
     byFirma = {}

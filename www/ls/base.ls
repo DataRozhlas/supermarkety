@@ -13,7 +13,7 @@ podily = d3.tsv.parse ig.data['mesta-podily'], (row) ->
 
 voronois = topojson.feature ig.data.voronoi, ig.data.voronoi.objects.data
 map = new ig.Map container, podily, voronois
-new Tooltip!watchElements!
+
 new ig.Selector container, mesta
   ..on \selected (mesto)-> map.draw mesto
 

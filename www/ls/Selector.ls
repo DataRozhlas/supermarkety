@@ -13,7 +13,7 @@ class ig.Selector
         ..html (.nazev)
         ..attr \selected -> if it.nazev == "Praha" then yes else void
       ..on \change -> self.emit \selected assoc[@value]
-    # selectivity = $ select.node! .selectivity!
-    # $ '.selector > div' .change (evt) ->
-    #   value = $ '.selector > div' .selectivity \value
-    #   self.emit \selected assoc[value]
+    selectivity = $ select.node! .selectivity!
+    $ '.selector > div' .change (evt) ->
+      value = $ '.selector > div' .selectivity \value
+      self.emit \selected assoc[value]

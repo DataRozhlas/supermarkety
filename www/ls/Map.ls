@@ -28,6 +28,7 @@ class ig.Map
       for feature in toDisplay
         feature.inCity = nazev
         feature.d = path feature
+        feature.center = projection [feature.properties.x, feature.properties.y]
       city.features = toDisplay
 
     tile = d3.geo.tile!
@@ -54,12 +55,18 @@ class ig.Map
     @firmyG = @svg.append \g .attr \class \firmy
     @firmaG = @firmyG.selectAll \g.firma .data grouped .enter!append \g
       ..attr \class \firma
-      ..selectAll \path .data (.features) .enter!append \path
-        ..attr \d (.d)
-        ..attr \fill -> color it.properties.FIRMA
-        ..attr \data-tooltip ->
-          "<b>#{it.properties.FIRMA}</b><br>
-          #{it.properties.ADRESA}"
+      ..selectAll \g .data (.features) .enter!append \g
+        ..attr \class \market
+        ..append \path
+          ..attr \d (.d)
+          ..attr \fill -> color it.properties.FIRMA
+          ..attr \data-tooltip ->
+            "<b>#{it.properties.FIRMA}</b><br>
+            #{it.properties.ADRESA}"
+        ..append \circle
+          ..attr \cx (.center.0)
+          ..attr \cy (.center.1)
+          ..attr \r 2
 
     {podily} = @podily.filter (.nazev == city.nazev) .0
     podily .= filter (.podil > 0)

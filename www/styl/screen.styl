@@ -24,22 +24,23 @@
         stroke-opacity 0.5
         stroke-width 0.5
       .firmy
-        path
-          stroke none
-          fill-opacity 0.9
-          transition fill-opacity 0.2s
+        g.market
+          opacity 0.9
+          transition opacity 0.2s
+          path
+            stroke none
 
         &:hover
-          path
-            fill-opacity 0.3
+          g.market
+            opacity 0.3
             &:hover
-              fill-opacity 0.9
+              opacity 0.9
               cursor help
         &.highlight
-          path
-            fill-opacity 0.1
-          g.highlight path
-            fill-opacity 0.9
+          g.market
+            opacity 0.1
+          g.highlight g.market
+            opacity 0.9
     .barchart
       position absolute
       bottom 0px
@@ -57,7 +58,7 @@
           border-left 0px none
         &:last-child
           border-right 0px none
-        .fill`
+        .fill
         .nazev
           transition opacity 0.2s
         .fill

@@ -106,7 +106,7 @@ class ig.Map
     @graphTip.display do
       feature.center.0
       feature.center.1
-      "<b>#{feature.properties.FIRMA}</b><br>#{feature.properties.ADRESA}"
+      "<b>#{feature.properties.FIRMA}</b><br>#{feature.properties.ADRESA}<br>Ve spádové oblasti má #{ig.utils.formatNumber feature.properties.SUMOBZSJ01} lidí"
     @firmyG.classed \highlight-market yes
     @markety.classed \highlight-market -> it is feature
 

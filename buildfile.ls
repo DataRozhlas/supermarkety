@@ -1,5 +1,6 @@
 require! fs
 require! async
+process.chdir __dirname
 
 externalScripts =
   # \https://samizdat.cz/tools/tooltip/v1.1.4.d3.js
@@ -216,7 +217,7 @@ inject-index = (cb) ->
   (err, [index, script, style]) <~ async.map files, fs.readFile
   console.log err if err
   index .= toString!
-  index .= replace '<script src="script.js" charset="utf-8" async></script>', "<script>#{script.toString!}</script>"
+  # index .= replace '<script src="script.js" charset="utf-8" async></script>', "<script>#{script.toString!}</script>"
   index .= replace '<link rel="stylesheet" href="screen.css">', "<style>#{style.toString!}</style>"
   index += '<script src="https://samizdat.cz/tools/analytics/0.0.1.js" charset="utf-8" async></script>'
   htmlminConfig =

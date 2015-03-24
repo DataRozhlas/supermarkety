@@ -1,3 +1,14 @@
+color = (firma) ->
+  switch firma
+  | "AHOLD Czech Republic, a. s."            => \#88ac32
+  | "Lidl Česká republika, v.o.s."           => \#2b67d7
+  | "Billa, s.r.o."                          => \#ffef00
+  | "Kaufland Česká republika, v.o.s."       => \#888
+  | "Tesco Stores ČR, a.s."                  => \#062594
+  | "Spar Česká obchodní společnost, s.r.o." => \#007a4f
+  | "Penny Market, s.r.o."                   => \#d62918
+
+
 class ig.Map
   (@parentElement, @podily, @voronois) ->
     @fullWidth = 610
@@ -39,7 +50,6 @@ class ig.Map
     tiles = tile!
 
     grouped = @getGroupedFeatures toDisplay
-    color = d3.scale.category10!
     @svg = @element.append \svg
       ..attr \width fullWidth
       ..attr \height fullHeight

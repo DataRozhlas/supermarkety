@@ -23,6 +23,9 @@ class ig.GraphTip
       offset = left + width - window.innerWidth
       left = window.innerWidth - width
     top = yPosition - height
+    @element.classed \out top < 0 or left < 0
+    top = 0 if top < 0
+    left = 0 if left < 0
     @element
       ..style \left left + "px"
       ..style \top top + "px"

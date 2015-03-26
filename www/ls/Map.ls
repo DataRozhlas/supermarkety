@@ -50,6 +50,10 @@ class ig.Map
     tiles = tile!
 
     grouped = @getGroupedFeatures toDisplay
+    tileSrc = "des1"
+    try
+      if navigator.vendor == "Google Inc." and -1 != navigator.userAgent.indexOf "Chrome"
+        tileSrc = "ton_b1"
     @svg = @element.append \svg
       ..attr \width fullWidth
       ..attr \height fullHeight
@@ -57,7 +61,7 @@ class ig.Map
         ..attr \class \tiles
         ..attr \transform "scale(#{tiles.scale}) translate(#{tiles.translate})"
         ..selectAll \image .data tiles .enter!append \image
-          ..attr \xlink:href -> "https://samizdat.cz/tiles/ton_b1/#{it.2}/#{it.0}/#{it.1}.png"
+          ..attr \xlink:href -> "https://samizdat.cz/tiles/#{tileSrc}/#{it.2}/#{it.0}/#{it.1}.png"
           ..attr \width 1
           ..attr \height 1
           ..attr \x -> it.0

@@ -63,12 +63,13 @@
       bottom 0px
       left 0px
       width 100%
-      height 60px
+      height 90px
+      padding-top 30px
       background linear-gradient(to bottom, rgba(255,255,255,0) 0px, rgba(255,255,255,1) 20px)
       z-index 4
       .bar
         float left
-        height 60px
+        height 70px
         border-left 4px solid white
         border-right 4px solid white
         position relative
@@ -99,6 +100,9 @@
             font-size 11px
           &:hover
             cursor default
+        &:nth-child(2n)
+          .nazev
+            top -5px
       &:hover
         .bar
           .fill

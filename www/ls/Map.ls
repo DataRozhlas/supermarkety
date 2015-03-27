@@ -7,6 +7,7 @@ color = (firma) ->
   | "Tesco Stores ČR, a.s."                  => \#062594
   | "Spar Česká obchodní společnost, s.r.o." => \#007a4f
   | "Penny Market, s.r.o."                   => \#d62918
+  | "Globus ČR, k.s."                        => \#F58220
 
 
 class ig.Map

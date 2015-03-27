@@ -1,14 +1,26 @@
-Třetina obyvatel měst to má nejblíž do Alberta
+Čtvrtina obyvatel měst to má nejblíž do Alberta. V Praze a Brně je to téměř polovina.
 
-Po koupi řetězce Spar se podíl těch, kdo to mají nejblíž do Alberta, zvedl o čtyři procenta na 34,6 procent. V Praze a Brně je tenhle podíl dokonce padesátiprocentní.
+Analýza spádových oblastí super- a hypermarketů ukázala silnou pozici řetězce Albert. Blíž než do jiného řetězce to sem má 28 procent obyvatel měst.  
 
-Voronoiem jsme přišli na to, že... Počítáme jenom města a jenom super/hypermarkety.
+---
 
-<mapa>
+Přesně před rokem pohltila nizozemská firma Ahold, provozovatel řetězce Albert, konkurenční Spar. Síť Albertů se tak rozrostla o padesát super- a hypermarketů na 334 prodejen. Co do počtu prodejen se Albert stal největším městským supermarketovým řetězcem. Zajímaly nás dvě otázky: ve kterých městech se Albert soustředí a jak mu pomohl nákup Sparu. 
 
-Ve velkých městech je podíl ještě větší.
+Vynesli jsme na mapu všechny super- a hypermarkety a spočetli jejich spádovou oblast. Vzápětí jsme na mapě rozptýlili všech 10 230 060 obyvatel České republiky podle toho, kam se při posledním sčítání obyvatel hlásili. Každému z nich jsme pak určili nejbližší obchod. Následující mapa tedy ukazuje, kam to mají obyvatelé 78 největších českých měst nejblíž. Spodní linka procento lidí, kteří to mají nejblíž do daného řetězce. V mapě najdete i bývalý Spar - můžete se tak podívat, kolik nových zákazníků získal Albert po ovládnutí tohoto řetězce.           
 
-Za Alberty jsou Penny (18,1 %) a Billa (15,3 %), které navíc patří jedné firmě. Dál Lidl (12,3 %) a Kaufland (10,7 %), opět jedna firma. A super/hypermarkety Tesco (9,1 %).
+<mapa https://samizdat.cz/data/supermarkety/www/index.html>
+
+Analýza spádových oblastí ukazuje, že nejsilnějším řetězcem je ve městech skutečně Albert. Před koupí Sparu měl ve spádové oblasti 2,6 milionů (25 %) obyvatel zmíněných měst, po ní jsou to 3 miliony (28 %) lidí. Nejblíž mu je Penny market s 2,3 miliony (21 % lidí).
+
+<tabulka podle-retezce>
+
+Ukazuje se také, že Albert se soustředí na největší města; v jeho spádové oblasti (a spádové oblasti bývalého Sparu) bydlí 47 % Pražanů, 51 % Brňanů nebo 53 % obyvatel Hradce Králové. Do velkých měst se vedle Alberta úspěšně tlačí Billa, naopak Kaufland se soustředí na ty menší.     
+
+Analýza spádových oblastí počítá se značným zjednodušením: neznáme totiž skutečnou nákupní plochu ani obraty jednotlivých prodejen, podle kterých bychom dokázali přesněji odhadnout jejich skutečný zásah. Srovnáváme proto jen řetězce, které mají typickou velikost prodejní plochy vyšší než 400 m2, což je hraniční vymezení supermarketu. Menší sítě, jako je Hruška, Žabka nebo Tesco Expres, se v analýze neobjevují, podobně tam nenajdete velkoobchodní Makro.
+
+Podrobnější analýzu, která ovšem neukazuje jednotlivé řetězce, si nechává každé tři roky zpracovat brněnský magistrát <>. 
+
+
 
 ---
 
@@ -35,19 +47,3 @@ Dále než 700 m do nejbližší prodejny potravin s minimální prodejní ploch
 Supermarket je samoobslužní prodejna s nabídkou převážně potravinářského zboží denní potřeby a s doplňkovým nepotravinářským zbožím (drogerie, tisk). Zvýšený důraz se klade především na nabídku čerstvého zboží.[zdroj?] Prodejní plocha supermarketů se pohybuje v rozmezí od 400 do 2500 metrů čtverečních.
 
 Podle ČTK na konci roku 2004 bylo v ČR 555 supermarketů, 426 diskontních prodejen a 160 hypermarketů.
-
-Kaufland: 51,4 mld. Kč
-Tesco: 42,5 mld. Kč
-AHOLD: 40,0 mld. Kč
-Penny: 30,4 mld. Kč
-Lidl: 29,1 mld. Kč
-Globus: 22,9 mld. Kč
-Makro: 21,1 mld. Kč
-Billa: 21,1 mld. Kč
-Spar (2012): 15,6 mld. Kč
-
-SPAR ČOS v číslech
-
-Celkový počet zaměstnanců ve SPAR ČOS: 4 500
-
-Počet prodejen SPAR ČOS: 48 (z toho 35 hypermarketů INTERSPAR a 13 supermarketů SPAR)
